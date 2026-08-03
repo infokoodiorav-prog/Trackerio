@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tips.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyGym</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="logo.jpg" alt="Logo" />
+        </div>
+        <button
+          class="burger"
+          id="burgerBtn"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+
+        <nav class="nav-menu hidden" id="navMenu" aria-label="Main navigation">
+          <a href="index.html">Treening</a>
+          <a href="meal-diary.html">Toitumine</a>
+          <a href="progress.html">Statistika</a>
+          <a href="tips.html">Kasulik info</a>
+          <a href="contact.html">Kontakt</a>
+        </nav>
+      </div>
+      <hr class="hr" />
+    </div>
+
+    <div class="info-header">
+      <h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#2fd16d"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-megaphone-icon lucide-megaphone"
+        >
+          <path
+            d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"
+          />
+          <path
+            d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"
+          />
+          <path d="M8 6v8" />
+        </svg>
+        Hea teada
+      </h2>
+      <p>Mõned nipid, mis muudavad treeningute haldamise kiiremaks.</p>
+    </div>
+
+    <div class="tip">
+      <strong
+        ><svg
+          fill="#000000"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M11,11.5 L11,14.0474376 C11,14.3783481 10.8839855,14.698786 10.6721417,14.9529985 C10.1720143,15.5531514 9.28006076,15.6342381 8.6799078,15.1341106 L7.75607376,14.3642489 C7.4736449,14.1288916 7.11763998,14 6.75,14 C6.48363526,14 6.24082605,14.1526146 6.12532205,14.3926334 L6.08962348,14.4668155 C5.95447865,14.7476481 5.99541029,15.0814869 6.19439734,15.321352 L10.607865,20.6414804 C11.3217788,21.502054 12.3818498,22 13.5,22 C15.9852814,22 18,19.9852814 18,17.5 L18,13.5 C18,13.2238576 17.7761424,13 17.5,13 C17.2238576,13 17,13.2238576 17,13.5 L17,14.5 C17,14.7761424 16.7761424,15 16.5,15 C16.2238576,15 16,14.7761424 16,14.5 L16,12.5 C16,12.2238576 15.7761424,12 15.5,12 C15.2238576,12 15,12.2238576 15,12.5 L15,14.5 C15,14.7761424 14.7761424,15 14.5,15 C14.2238576,15 14,14.7761424 14,14.5 L14,11.5 C14,11.2238576 13.7761424,11 13.5,11 C13.2238576,11 13,11.2238576 13,11.5 L13,14.5 C13,14.7761424 12.7761424,15 12.5,15 C12.2238576,15 12,14.7761424 12,14.5 L12,6.5 C12,6.22385763 11.7761424,6 11.5,6 C11.2238576,6 11,6.22385763 11,6.5 L11,11.5 Z M10,11.4999998 L10,6.5 C10,5.67157288 10.6715729,5 11.5,5 C12.3284271,5 13,5.67157288 13,6.5 L13,10.0853529 C13.1563895,10.0300771 13.3246823,10 13.5,10 C14.191734,10 14.7741062,10.4682339 14.9474595,11.1050446 C15.1184541,11.0372568 15.3048761,11 15.5,11 C16.191734,11 16.7741062,11.4682339 16.9474595,12.1050446 C17.1184541,12.0372568 17.3048761,12 17.5,12 C18.3284271,12 19,12.6715729 19,13.5 L19,17.5 C19,20.5375661 16.5375661,23 13.5,23 C12.0842933,23 10.7421216,22.3695431 9.83822457,21.279958 L5.42475695,15.9598296 C4.97611908,15.4190278 4.88383427,14.6663521 5.18853292,14.0331845 L5.2242315,13.9590024 C5.50634865,13.3727595 6.09940726,13 6.75,13 C7.35157648,13 7.9341143,13.2109078 8.39625816,13.5960277 L9.3200922,14.3658894 C9.49596826,14.5124527 9.75735708,14.4886901 9.90392046,14.3128141 C9.96600171,14.2383166 10,14.1444116 10,14.0474376 L10,11.5 Z M15,6.5 C15,6.77614237 14.7761424,7 14.5,7 C14.2238576,7 14,6.77614237 14,6.5 C14,5.11928813 12.8807119,4 11.5,4 C10.1192881,4 9,5.11928813 9,6.5 C9,6.77614237 8.77614237,7 8.5,7 C8.22385763,7 8,6.77614237 8,6.5 C8,4.56700338 9.56700338,3 11.5,3 C13.4329966,3 15,4.56700338 15,6.5 Z M15.8989285,9.80191359 C15.7330023,10.0226467 15.419553,10.0670764 15.1988199,9.90115018 C14.9780868,9.73522394 14.9336571,9.42177463 15.0995833,9.20104154 C15.6809057,8.42770343 16,7.48868831 16,6.5 C16,4.01471863 13.9852814,2 11.5,2 C9.01471863,2 7,4.01471863 7,6.5 C7,7.49044723 7.32023616,8.43103083 7.90347152,9.20510065 C8.06964577,9.42564708 8.02556841,9.73914614 7.80502198,9.90532039 C7.58447555,10.0714946 7.27097649,10.0274173 7.10480224,9.80687086 C6.39200677,8.86084888 6,7.70946381 6,6.5 C6,3.46243388 8.46243388,1 11.5,1 C14.5375661,1 17,3.46243388 17,6.5 C17,7.70731344 16.6093905,8.85678 15.8989285,9.80191359 Z"
+            ></path>
+          </g>
+        </svg>
+        Topeltvajutus -
+      </strong>
+      <span>Muuda harjutuse nime, raskust(kg), kordusi, aega.</span>
+    </div>
+
+    <div class="tip">
+      <strong
+        ><svg
+          viewBox="0 0 72 72"
+          id="emoji"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#000000"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g id="color">
+              <line
+                x1="54.8315"
+                x2="54.8315"
+                y1="49.8855"
+                y2="37.8855"
+                fill="none"
+              ></line>
+              <path
+                fill="#2fd16d"
+                d="M40.8423,37.3592c0.081-1.9313,1.7123-3.4313,3.6436-3.3502s3.4313,1.7123,3.3502,3.6436"
+              ></path>
+              <path
+                fill="#2fd16d"
+                d="M26.8047,14.5086c0-1.933,1.567-3.5,3.5-3.5s3.5,1.567,3.5,3.5"
+              ></path>
+              <line
+                x1="33.8047"
+                x2="33.8047"
+                y1="36.8438"
+                y2="14.5086"
+                fill="none"
+              ></line>
+              <line
+                x1="26.8047"
+                x2="26.8047"
+                y1="14.5086"
+                y2="42.2992"
+                fill="none"
+              ></line>
+              <line
+                x1="23.8439"
+                x2="21.8859"
+                y1="36.4553"
+                y2="34.2415"
+                fill="none"
+              ></line>
+              <line
+                x1="16.8509"
+                x2="18.6723"
+                y1="39.1045"
+                y2="41.4847"
+                fill="none"
+              ></line>
+              <path
+                fill="#2fd16d"
+                d="M54.8362,36.8438h-0.133c-0.3835-1.4413-1.6517-2.5361-3.2203-2.6019 c-1.6726-0.0703-3.116,1.0472-3.5264,2.6019H47.757c-0.2912-1.5044-1.5394-2.6978-3.1413-2.8266 c-1.795-0.1444-3.3657,1.0989-3.6997,2.8266h-0.1434c-0.1277-1.714-1.4872-3.1186-3.2511-3.2317 c-1.7462-0.112-3.2629,1.0814-3.6288,2.7386l-0.088-22.1765h-6.9524V38.04l-0.8437-0.3276l-1.8582-2.2302 c-1.3429-1.3904-5.7173-2.5504-7.2135-1.3266c-2.8118,2.2998,2.8898,8.5952,1.6817,7.2687l3.1434,9.0663 c2.2408,16.169,12.7172,16.6125,16.6138,16.7243c9.0206,0.2588,16.1402-6.3282,16.2401-18.1448h0.2203V36.8438z M33.8948,36.8867 l0.02,0.0013v3.8943l-0.0045-0.0018L33.8948,36.8867z"
+              ></path>
+            </g>
+            <g id="hair"></g>
+            <g id="skin"></g>
+            <g id="skin-shadow"></g>
+            <g id="line">
+              <path
+                fill="#2fd16d"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M33.79,23.7098c4.13-1.45,7.09-5.39,7.09-10.02c0-5.87-4.75-10.63-10.62-10.63s-10.62,4.76-10.62,10.63c0,4.65,2.99,8.6,7.15,10.04"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M33.79,20.5698c2.49-1.28,4.2-3.88,4.2-6.88c0-4.28-3.46-7.74-7.73-7.74s-7.74,3.46-7.74,7.74c0,3.02,1.74,5.64,4.27,6.91"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M54.8163,50.7743c0,9.0883-7.3675,16.4558-16.4558,16.4558s-16.4558-7.3675-16.4558-16.4558"
+              ></path>
+              <line
+                x1="54.8163"
+                x2="54.8163"
+                y1="49.9008"
+                y2="37.9008"
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+              ></line>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M47.824,37.6074c0.081-1.9313,1.7123-3.4313,3.6436-3.3502s3.4313,1.7123,3.3502,3.6436"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M40.827,37.3745c0.081-1.9313,1.7123-3.4313,3.6436-3.3502s3.4313,1.7123,3.3502,3.6436"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M40.8311,37.2406c0.155-1.9268,1.8426-3.3631,3.7694-3.2081s3.3631,1.8426,3.2081,3.7694"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M33.7895,36.8962c0.1237-1.929,1.7878-3.3925,3.7168-3.2688s3.3925,1.7878,3.2688,3.7168"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M16.8357,39.1198c-1.3429-1.3904-1.3044-3.6061,0.086-4.949s3.6061-1.3044,4.949,0.086"
+              ></path>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M26.7895,14.5239c0-1.933,1.567-3.5,3.5-3.5s3.5,1.567,3.5,3.5"
+              ></path>
+              <line
+                x1="33.7895"
+                x2="33.7895"
+                y1="36.8591"
+                y2="14.5239"
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+              ></line>
+              <line
+                x1="26.7895"
+                x2="26.7895"
+                y1="14.5239"
+                y2="42.3145"
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+              ></line>
+              <line
+                x1="23.8286"
+                x2="21.8706"
+                y1="36.4705"
+                y2="34.2568"
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+              ></line>
+              <path
+                fill="none"
+                stroke="#000000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M18.6034,41.4395c1.9526,2.1439,3.3734,5.1677,3.3013,9.5218"
+              ></path>
+              <line
+                x1="16.8357"
+                x2="18.6571"
+                y1="39.1198"
+                y2="41.5"
+                fill="#2fd16d"
+                stroke="#2fd16d"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+              ></line>
+              <path
+                fill="#2fd16d"
+                stroke="#2fd16d"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M54.8315,50.7591c0,9.0883-7.3675,16.4558-16.4558,16.4558S21.92,59.8474,21.92,50.7591"
+              ></path>
+            </g>
+          </g>
+        </svg>
+        Pikk vajutus -
+      </strong>
+      <span>Kopeerib valitud harjutuse.</span>
+    </div>
+
+    <div class="tip">
+      <strong>📋 Kopeeri nupp - </strong>
+      <span>Kopeerib terve trenni</span> <br />
+      <strong>📥 Kleebi nupp - </strong>
+      <span>Kleebib selle, mida viimati kopeerisid.</span>
+    </div>
+
+    <div class="tip">
+      <strong>☷ Lohista - </strong>
+      <span>Muuda järjekorda</span>
+    </div>
+
+    <div class="tip">
+      <strong
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-bodyweight-icon lucide-user"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+        Keharaskus -
+      </strong>
+
+      <span>Harjutus ilma lisaraskuseta.</span>
+    </div>
+
+    <div class="tip">
+      <strong
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-timer-icon lucide-timer"
+        >
+          <line x1="10" x2="14" y1="2" y2="2" />
+          <line x1="12" x2="15" y1="14" y2="11" />
+          <circle cx="12" cy="14" r="8" />
+        </svg>
+        Ajaline -
+      </strong>
+
+      <span>
+        Ajalised harjutused ja ringtreeningud annavad märku heli ja
+        vibratsiooniga.</span
+      >
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/lucide.js"></script>
+    <script src="tips.js"></script>
+  </body>
+</html>

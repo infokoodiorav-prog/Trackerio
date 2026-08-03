@@ -41,7 +41,8 @@ body {
 }
 
 .logo img {
-  height: 44px;
+  background-color: transparent;
+  height: 45px;
   width: auto;
 }
 
@@ -214,7 +215,8 @@ body {
 }
 
 .modal-content input,
-.completion-popup__input {
+.completion-popup__input,
+.completion-popup__content input {
   padding: 11px 12px;
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -224,7 +226,8 @@ body {
 }
 
 .modal-content input:focus,
-.completion-popup__input:focus {
+.completion-popup__input:focus,
+.completion-popup__content input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(255, 123, 47, 0.18);
@@ -232,6 +235,47 @@ body {
 
 .modal-field.hidden {
   display: none;
+}
+
+.weight-time-row {
+  display: flex;
+  gap: 8px;
+}
+
+.weight-time-row input {
+  flex: 1;
+}
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.time-row input {
+  width: 0;
+  flex: 1;
+}
+
+.time-row span {
+  font-size: 20px;
+}
+
+#timeBtn svg,
+#bodyweightBtn svg {
+  width: 40px;
+  height: 40px;
+}
+
+#timeBtn,
+#bodyweightBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: var(--primary-strong);
+  color: var(--bg);
 }
 
 .workout-title {
@@ -275,14 +319,15 @@ body {
   color: var(--text);
 }
 
-.modal-content button {
+.modal-content button:not(.removeBtn) {
   padding: 8px 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
-#saveBtn {
+#saveBtn,
+#saveTimeBtn {
   background: linear-gradient(
     135deg,
     var(--primary) 0%,
@@ -291,7 +336,8 @@ body {
   color: #0f1218;
 }
 
-#closeBtn {
+#closeBtn,
+#closeTimeBtn {
   background: var(--surface-soft);
   color: var(--text);
   border: 1px solid var(--border);
@@ -418,6 +464,25 @@ button * {
 .toggleBtn:active {
   transform: scale(0.95);
 }
+.exercise-info {
+  display: flex;
+  flex-direction: column;
+}
+.rep-range-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.rep-range-row input {
+  width: 0;
+  flex: 1;
+}
+
+.rep-range-row span {
+  font-size: 20px;
+}
 
 .sets-panel {
   overflow: hidden;
@@ -444,6 +509,45 @@ button * {
     var(--primary-strong) 100%
   );
   color: #0f1218;
+}
+
+.timer-alert {
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 1100;
+  display: grid;
+  gap: 2px;
+  width: min(calc(100vw - 32px), 360px);
+  padding: 14px 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #f35d24, #ff9b45);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(173, 57, 16, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 24px) scale(0.96);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.timer-alert--visible {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.timer-alert strong {
+  color: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.11em;
+}
+
+.timer-alert span {
+  color: inherit;
+  font-size: 0.92rem;
 }
 
 .card {
@@ -639,4 +743,188 @@ button * {
 
 .empty-state p {
   font-size: 0.95rem;
+}
+.copy-paste-del {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.copy-paste-del button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: #0f1218;
+}
+.card {
+  cursor: grab;
+}
+
+.card.dragging {
+  opacity: 0.5;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+.sortable-ghost {
+  opacity: 0.4;
+}
+.drag-handle {
+  user-select: none;
+  touch-action: none;
+}
+
+.sortable-chosen {
+  transform: scale(1.02);
+}
+.hidden {
+  margin: 15px;
+  display: none;
+}
+#circuitBox h3 {
+  margin: 15px;
+}
+#normalTimeBox h3 {
+  margin-bottom: 15px;
+}
+
+.timerButtons {
+  display: flex;
+  gap: 20px;
+}
+.playBtn,
+.stopBtn,
+.resetBtn {
+  color: var(--muted);
+  background-color: transparent;
+  border: none;
+}
+
+.circuit-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.circuit-toggle input {
+  display: none;
+}
+
+.toggle-text {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--primary-strong);
+  color: var(--primary);
+}
+
+.circuit-toggle input:checked + .toggle-text {
+  background: var(--primary-strong);
+  color: var(--bg);
+  font-weight: 500;
+  border: 1px solid var(--bg);
+}
+#addCircuitExerciseBtn {
+  margin-top: 15px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--primary-strong);
+  color: var(--bg);
+  background: var(--primary-strong);
+}
+
+.circuit-exercise-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.circuit-exercise-row input {
+  flex: 1;
+}
+.removeBtn {
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.removeBtn svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--primary);
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 9999;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.meal-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+
+  z-index: 9999;
+  animation: popupShow 0.3s ease;
+}
+.undo-popup {
+  display: flex;
+  gap: 12px;
+}
+
+.undo-popup button {
+  border: none;
+  background: var(--primary);
+  color: var(--bg);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }

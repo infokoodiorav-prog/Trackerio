@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyGym</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="logo.jpg" alt="Logo" />
+        </div>
+        <button
+          class="burger"
+          id="burgerBtn"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+
+        <nav class="nav-menu hidden" id="navMenu" aria-label="Main navigation">
+          <a href="index.html">Treening</a>
+          <a href="meal-diary.html">Toitumine</a>
+          <a href="progress.html">Statistika</a>
+          <a href="tips.html">Kasulik info</a>
+          <a href="contact.html">Kontakt</a>
+        </nav>
+      </div>
+      <hr class="hr" />
+      <div class="top-picker">
+        <button id="prevBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-arrow-left-icon lucide-arrow-left"
+          >
+            <path d="m12 19-7-7 7-7" />
+            <path d="M19 12H5" />
+          </svg>
+        </button>
+
+        <div class="date-stack">
+          <button
+            id="dateBtn"
+            onclick="document.getElementById('dateInput').showPicker()"
+          ></button>
+          <p id="dayName"></p>
+        </div>
+
+        <button id="nextBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-arrow-right-icon lucide-arrow-right"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </button>
+        <input type="date" id="dateInput" style="display: none" />
+      </div>
+
+      <button id="addBtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-plus-icon lucide-plus"
+        >
+          <path d="M5 12h14" />
+          <path d="M12 5v14" />
+        </svg>
+        <p>Lisa uus harjutus</p>
+      </button>
+
+      <div class="copy-paste-del">
+        <button id="copyWorkoutBtn">📋 Kopeeri</button>
+        <button id="pasteWorkoutBtn">📥 Kleebi</button>
+      </div>
+
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Uue harjutuse lisamine</h2>
+
+          <div id="workoutNameWrap" class="modal-field">
+            <input id="workoutName" placeholder="Treeningu nimi" />
+          </div>
+          <input id="name" placeholder="Harjutuse nimi" />
+
+          <div class="weight-time-row">
+            <input id="weight" type="text" placeholder="Raskus (kg)" />
+
+            <button id="bodyweightBtn" type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-bodyweight-icon lucide-user"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </button>
+
+            <button id="timeBtn" type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-timer-icon lucide-timer"
+              >
+                <line x1="10" x2="14" y1="2" y2="2" />
+                <line x1="12" x2="15" y1="14" y2="11" />
+                <circle cx="12" cy="14" r="8" />
+              </svg>
+            </button>
+          </div>
+
+          <input id="sets" type="number" placeholder="Mitu seeriat?" />
+          <div class="rep-range-row">
+            <input id="minReps" type="number" placeholder="Min" />
+            <span>-</span>
+            <input id="maxReps" type="number" placeholder="Max" />
+          </div>
+
+          <div class="modal-actions">
+            <button id="saveBtn">Salvesta</button>
+            <button id="closeBtn">Katkesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="timeModal" class="modal hidden">
+        <div class="modal-content">
+          <label class="circuit-toggle">
+            <input type="checkbox" id="circuitCheck" />
+
+            <span class="toggle-text"> Ringtreening </span>
+          </label>
+
+          <!-- TAVALINE TIMER -->
+          <div id="normalTimeBox">
+            <h3>Harjutuse kestus</h3>
+
+            <div class="time-row">
+              <input id="minutes" type="number" placeholder="Min" />
+              <span>:</span>
+              <input id="seconds" type="number" placeholder="Sek" />
+            </div>
+          </div>
+
+          <!-- RINGTRENING -->
+          <div id="circuitBox" class="hidden">
+            <h3>Harjutused</h3>
+
+            <div id="circuitExercisesContainer">
+              <!-- siia tulevad inputid -->
+            </div>
+
+            <button type="button" id="addCircuitExerciseBtn">
+              + Lisa harjutus
+            </button>
+            <h3>Ühe harjutuse kestus</h3>
+
+            <div class="time-row">
+              <input id="roundMinutes" type="number" placeholder="Min" />
+              <span>:</span>
+              <input id="roundSeconds" type="number" placeholder="Sek" />
+            </div>
+
+            <h3>Puhkus harjutuste vahel</h3>
+
+            <div class="time-row">
+              <input id="restMinutes" type="number" placeholder="Min" />
+              <span>:</span>
+              <input id="restSeconds" type="number" placeholder="Sek" />
+            </div>
+
+            <h3>Ringide arv</h3>
+
+            <input id="roundCount" type="number" placeholder="nt 5" min="1" />
+
+            <h3>Puhkus ringide vahel</h3>
+
+            <div class="time-row">
+              <input id="roundRestMinutes" type="number" placeholder="Min" />
+              <span>:</span>
+              <input id="roundRestSeconds" type="number" placeholder="Sek" />
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button id="saveTimeBtn">Salvesta</button>
+
+            <button id="closeTimeBtn">Katkesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="list"></div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <script src="meal-popup.js"></script>
+    <script src="helpers.js"></script>
+    <script src="storage.js"></script>
+    <script src="date.js"></script>
+    <script src="sound.js"></script>
+    <script src="modal.js"></script>
+    <script src="render.js"></script>
+    <script src="app.js"></script>
+    <script src="clipboard.js"></script>
+  </body>
+</html>

@@ -15,6 +15,7 @@ function getDayEntry(dateKey) {
       exercises: Array.isArray(existing.exercises)
         ? existing.exercises.filter(Boolean)
         : [],
+      completed: existing.completed || false,
       _completedPopupShown: existing._completedPopupShown || false,
     };
   }
@@ -26,6 +27,7 @@ function setDayEntry(dateKey, dayEntry) {
   workouts[dateKey] = {
     workoutName: dayEntry?.workoutName || "",
     exercises: (dayEntry?.exercises || []).filter(Boolean),
+    completed: dayEntry?.completed || false,
     _completedPopupShown: dayEntry?._completedPopupShown || false,
   };
 
@@ -36,4 +38,8 @@ function save() {
   localStorage.setItem("workouts", JSON.stringify(workouts));
   localStorage.setItem("currentDate", currentDate);
   localStorage.setItem("workouts", JSON.stringify(workouts));
+}
+
+function getAllWorkouts() {
+  return workouts;
 }

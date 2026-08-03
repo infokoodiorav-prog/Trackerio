@@ -1,0 +1,812 @@
+:root {
+  --bg: #06070c;
+  --surface: #111522;
+  --surface-2: #171d30;
+  --surface-soft: #1d2438;
+  --card: #ffffff;
+  --primary: #ff7b2f;
+  --primary-strong: #ff9b45;
+  --text: #f7f7f2;
+  --muted: #a4b0c0;
+  --border: #263047;
+  --success: #2fd16d;
+  --danger: #ff5c5c;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Montserrat", "Poppins", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.45;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef3ff 100%);
+  padding: 0 0 40px;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px 16px 40px;
+}
+
+.logo {
+  color: var(--bg);
+  padding: 8px 0;
+}
+
+.logo img {
+  height: 44px;
+  width: auto;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 4px 12px;
+}
+.nav-menu {
+  position: absolute;
+  top: 72px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #dbe3f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  z-index: 20;
+  transform-origin: top right;
+  animation: menuOpen 0.2s ease-out;
+}
+.nav-menu.hidden {
+  display: none;
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.nav-menu a {
+  color: #111827;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.nav-menu a:hover {
+  background: #f3f6fb;
+}
+
+.burger {
+  padding: 10px;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: white;
+  border: 1px solid #dbe3f0;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.line {
+  width: 22px;
+  height: 2px;
+  background: #111827;
+  border-radius: 999px;
+}
+
+.hr {
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  height: 1px;
+  width: 100%;
+  border: 0;
+  margin: 8px 0 16px;
+}
+
+.hero-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 18px;
+  padding: 24px;
+  border: 1px solid rgba(219, 227, 240, 0.85);
+  border-radius: 18px;
+  background-color: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.hero-card__top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.meal-card {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #171d2f 0%, #121826 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.2s ease;
+}
+.meal-card:active {
+  transform: scale(0.99);
+}
+.meal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+.summary-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #171d2f 0%, #121826 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.2s ease;
+}
+
+.primary-button {
+  width: 100%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: #0f1218;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(255, 123, 47, 0.24);
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary-button:hover {
+  filter: brightness(1.04);
+}
+.secondary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--surface-soft);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.hero-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.date-picker-card {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 18px;
+  padding: 10px;
+}
+
+.date-picker-card label {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.date-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.date-nav input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+.date-nav__button {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  color: var(--text);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+}
+
+.date-nav__button:active {
+  transform: scale(0.96);
+}
+
+#dateButton {
+  text-decoration: none;
+  text-align: center;
+  color: var(--bg);
+  width: min(100%, 280px);
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #dbe3f0;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.weekday-label {
+  min-width: 110px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.meal-label {
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.meal-label h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 {
+  font-weight: 600;
+  margin: 0;
+  color: var(--bg);
+}
+h2,
+h3 {
+  margin: 0;
+}
+
+.hero-text {
+  margin: 8px 0 0;
+  color: var(--bg);
+  max-width: 500px;
+  font-weight: 400;
+}
+
+.diary-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.meal-card__header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.meal-card__total {
+  background: rgba(255, 123, 47, 0.12);
+  color: var(--primary);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 20;
+}
+
+.add-meal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 480px);
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 21;
+  margin-bottom: 16px;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #171d2f 0%, #0f1422 100%);
+  box-shadow: var(--shadow);
+}
+
+.add-meal-card[hidden] {
+  display: none;
+}
+
+.add-meal-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.field-label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.meal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.meal-form input,
+.meal-form select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  background: #0f1422;
+  color: var(--text);
+}
+.meal-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 123, 47, 0.18);
+}
+#mealTypeSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 123, 47, 0.18);
+}
+
+.meal-form button {
+  margin-top: 20px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: var(--bg);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.meal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.meal-item__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.meal-item__name {
+  font-weight: 600;
+}
+
+.meal-item__meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.meal-item__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.meal-item__action {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.meal-item__action--edit {
+  background: rgba(255, 123, 47, 0.12);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.meal-item__action--delete {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--surface-soft);
+  color: var(--muted);
+  padding: 6px 10px;
+}
+
+.summary-card {
+  margin-top: 18px;
+  padding: 16px 20px;
+}
+.meal-item--done {
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+#mealName {
+  width: 100%;
+}
+
+.food-search {
+  position: relative;
+  width: 100%;
+}
+
+.food-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-top: 6px;
+  background: var(--surface-soft);
+  border-radius: 10px;
+
+  z-index: 1000;
+}
+
+.food-suggestion {
+  padding: 10px 12px;
+  background-color: var(--surface);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--muted);
+  border: 1px solid #ddd;
+}
+
+.food-suggestion:hover {
+  background-color: var(--surface-2);
+}
+.done-btn {
+  color: #22c55e;
+  background: rgba(47, 209, 109, 0.16);
+  color: var(--success);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.done-btn.pulse {
+  animation: donePulse 0.16s ease;
+}
+
+.undo-btn {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ef4444;
+  background: rgba(255, 92, 92, 0.16);
+  color: var(--danger);
+  padding: 6px 10px;
+}
+.summary-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.carry-button {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: var(--bg);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.meal-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+
+  z-index: 9999;
+  animation: popupShow 0.3s ease;
+}
+.confirm-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.confirm-popup__box {
+  background: black;
+  padding: 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.confirm-popup__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.confirm-popup button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.meal-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.copy-btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: var(--bg);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-meal-button {
+  white-space: nowrap;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-strong) 100%
+  );
+  color: var(--bg);
+  font-weight: 700;
+  cursor: pointer;
+}
+.undo-popup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  min-width: 280px;
+  justify-content: space-between;
+  animation: undoSlide 0.25s ease;
+}
+
+.empty-meal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.empty-meal span {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #999;
+}
+.empty-meal svg {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 16px;
+  color: #ffb36a;
+}
+
+@keyframes undoSlide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.undo-popup button {
+  border: none;
+  background: var(--primary);
+  color: var(--bg);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.undo-popup button:hover {
+  transform: scale(1.05);
+}
+
+.undo-popup button:active {
+  transform: scale(0.95);
+}
+
+@keyframes popupShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 380px) {
+  .meal-actions {
+    flex-direction: column;
+  }
+
+  .copy-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .date-picker-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .date-nav {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .date-nav__button {
+    padding: 8px;
+  }
+
+  #dateButton {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+  .meal-card__header {
+    gap: 6px;
+  }
+
+  .meal-card__total {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+}
