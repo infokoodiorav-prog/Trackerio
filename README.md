@@ -1,6 +1,6 @@
 # TrackerIO
 
-TrackerIO on Android-i treening- ja toitumispäeviku rakendus, mis aitab kasutajal jälgida oma treeninguid, toitumist ja arengut.
+TrackerIO on Androidi treeningu- ja toitumispäeviku rakendus, mis aitab kasutajal jälgida oma treeninguid, toitumist ja arengut.
 
 ## Funktsioonid
 
@@ -28,6 +28,10 @@ TrackerIO on Android-i treening- ja toitumispäeviku rakendus, mis aitab kasutaj
 - Android Studio
 - LocalStorage
 
+## Platvorm
+
+- Android rakendus (ehitatud Capacitoriga)
+
 ## Ekraanipildid
 
 <p align="center">
@@ -38,4 +42,56 @@ TrackerIO on Android-i treening- ja toitumispäeviku rakendus, mis aitab kasutaj
 
 ## Projekti eesmärk
 
-Ehitatud isikliku projektina, et luua lihtne ja kiire treeningu rakendus ilma kontode, pilveteenuse ja liigse keerukuseta.
+Ehitatud isikliku projektina eesmärgiga luua lihtne ja kiire treeningurakendus ilma kontode, pilveteenuse ja liigse keerukuseta.
+
+
+
+---
+
+# English
+
+TrackerIO is an Android workout and nutrition tracking application that helps users track workouts, nutrition and progress.
+
+## Features
+
+- Create and save workouts using LocalStorage
+- Add, manage and edit exercises
+- Track sets, repetitions and weights
+- Time-based exercises with timer, sound, vibration and popup notifications
+- Workout history
+- Progress tracking
+- Exercise statistics
+- Personal records tracking
+- Copy and reuse workouts
+- Drag and drop exercise reordering
+- Nutrition diary
+- Daily nutrition overview
+- Local data storage
+- Works without account or login
+
+## Technologies
+
+- HTML
+- CSS
+- JavaScript
+- Capacitor
+- Android Studio
+- LocalStorage
+
+## Platform
+
+- Android application (built with Capacitor)
+
+## ScreenShots
+
+<p align="center">
+  <img src="screenshots/Harjutuse_lisamine.png" width="250">
+  <img src="screenshots/toitumispäevik.png" width="250">
+  <img src="screenshots/harjutuste salvestamine.png" width="250">
+</p>
+
+
+## Project Goal
+
+Created as a personal project to build a simple and fast workout tracking application without accounts, cloud services, or unnecessary complexity.
+
