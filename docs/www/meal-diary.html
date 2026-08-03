@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="et">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="meal-diary.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyGym</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="header">
+        <div class="logo">
+          <img src="logo.jpg" alt="Logo" />
+        </div>
+        <button
+          class="burger"
+          id="burgerBtn"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+
+        <nav class="nav-menu hidden" id="navMenu" aria-label="Main navigation">
+          <a href="index.html">Treening</a>
+          <a href="meal-diary.html">Toitumine</a>
+          <a href="progress.html">Statistika</a>
+          <a href="tips.html">Kasulik info</a>
+          <a href="contact.html">Kontakt</a>
+        </nav>
+      </div>
+      <hr class="hr" />
+      <header class="hero-card">
+        <div class="hero-card__top">
+          <div>
+            <p class="eyebrow">Toitumispäevik</p>
+            <h1>Sinu päeva söögid ühes kohas</h1>
+            <p class="hero-text">
+              Lisa toidud, jälgi oma eesmärke ja kanna menüüd vajadusel
+              järgmisesse nädalasse.
+            </p>
+          </div>
+          <div class="date-picker-card">
+            <div class="date-nav">
+              <div class="date-nav">
+                <button
+                  type="button"
+                  class="date-nav__button"
+                  id="prevDate"
+                  aria-label="Eelmine päev"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-left-icon lucide-arrow-left"
+                  >
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </svg>
+                </button>
+
+                <div class="date-stack">
+                  <button
+                    type="button"
+                    id="dateButton"
+                    onclick="document.getElementById('diaryDate').showPicker()"
+                  ></button>
+                  <div class="weekday-label" id="weekdayLabel"></div>
+                </div>
+
+                <button
+                  type="button"
+                  class="date-nav__button"
+                  id="nextDate"
+                  aria-label="Järgmine päev"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right-icon lucide-arrow-right"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </button>
+
+                <input type="date" id="diaryDate" hidden />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="modal-backdrop" id="addMealBackdrop" hidden></div>
+      <section class="add-meal-card" id="addMealCard" hidden>
+        <div class="add-meal-card__header">
+          <div>
+            <p class="meal-label">Lisa uus kirje</p>
+            <h2>Uus toit</h2>
+          </div>
+          <button id="closeAddMeal" class="secondary-button" type="button">
+            Sulge
+          </button>
+        </div>
+
+        <form class="meal-form" id="addMealForm">
+          <label class="field-label" for="mealTypeSelect">Söögikord</label>
+          <select id="mealTypeSelect" name="mealType">
+            <option value="breakfast">Hommik</option>
+            <option value="lunch">Lõuna</option>
+            <option value="snack">Vahepala</option>
+            <option value="dinner">Õhtu</option>
+          </select>
+          <label class="field-label" for="mealName">Toidu nimi</label>
+          <div class="food-search">
+            <input
+              id="mealName"
+              type="text"
+              name="name"
+              placeholder="Näiteks: kaerahelbed"
+              required
+            />
+
+            <div id="foodSuggestions" class="food-suggestions"></div>
+          </div>
+
+          <label class="field-label" for="mealCalories">Kcal</label>
+          <input
+            id="mealCalories"
+            type="number"
+            name="calories"
+            placeholder="kcal"
+            min="0"
+          />
+          <label class="field-label" for="mealProtein">Proteiin (g)</label>
+          <input
+            id="mealProtein"
+            type="number"
+            name="protein"
+            placeholder="valk g"
+            min="0"
+          />
+          <label class="field-label" for="mealFat">Rasv (g)</label>
+          <input
+            id="mealFat"
+            type="number"
+            name="fat"
+            placeholder="rasv g"
+            min="0"
+          />
+          <label class="field-label" for="mealCarbs">Süsivesikud (g)</label>
+          <input
+            id="mealCarbs"
+            type="number"
+            name="carbs"
+            placeholder="süsivesikud g"
+            min="0"
+          />
+          <button type="submit">Lisa</button>
+        </form>
+      </section>
+
+      <main class="diary-grid">
+        <section class="meal-card" data-meal="breakfast">
+          <div class="meal-card__header">
+            <div>
+              <p class="meal-label">Hommik</p>
+              <h2>Hommikusöök</h2>
+            </div>
+            <div class="meal-card__total" id="breakfastTotal">0 kcal</div>
+          </div>
+
+          <ul class="meal-list" id="breakfastList"></ul>
+          <div class="meal-actions" id="breakfastActions">
+            <button type="button" class="add-meal-button" data-add="breakfast">
+              + Lisa uus
+            </button>
+            <div class="copy-actions">
+              <button type="button" data-copy="breakfast" class="copy-btn">
+                📋 Kopeeri
+              </button>
+              <button type="button" data-paste="breakfast" class="copy-btn">
+                📥 Kleebi
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="meal-card" data-meal="lunch">
+          <div class="meal-card__header">
+            <div>
+              <p class="meal-label">Lõuna</p>
+              <h2>Lõunasöök</h2>
+            </div>
+            <div class="meal-card__total" id="lunchTotal">0 kcal</div>
+          </div>
+
+          <ul class="meal-list" id="lunchList"></ul>
+          <div class="meal-actions" id="lunchActions">
+            <button type="button" class="add-meal-button" data-add="lunch">
+              + Lisa uus
+            </button>
+            <div class="copy-actions">
+              <button type="button" data-copy="lunch" class="copy-btn">
+                📋 Kopeeri
+              </button>
+              <button type="button" data-paste="lunch" class="copy-btn">
+                📥 Kleebi
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="meal-card" data-meal="snack">
+          <div class="meal-card__header">
+            <div>
+              <p class="meal-label">Vahepala</p>
+              <h2>Vahepala</h2>
+            </div>
+            <div class="meal-card__total" id="snackTotal">0 kcal</div>
+          </div>
+
+          <ul class="meal-list" id="snackList"></ul>
+
+          <div class="meal-actions" id="snackActions">
+            <button type="button" class="add-meal-button" data-add="snack">
+              + Lisa uus
+            </button>
+
+            <div class="copy-actions">
+              <button type="button" data-copy="snack" class="copy-btn">
+                📋 Kopeeri
+              </button>
+
+              <button type="button" data-paste="snack" class="copy-btn">
+                📥 Kleebi
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="meal-card" data-meal="dinner">
+          <div class="meal-card__header">
+            <div>
+              <p class="meal-label">Õhtu</p>
+              <h2>Õhtusöök</h2>
+            </div>
+            <div class="meal-card__total" id="dinnerTotal">0 kcal</div>
+          </div>
+
+          <ul class="meal-list" id="dinnerList"></ul>
+          <div class="meal-actions" id="dinnerActions">
+            <button type="button" class="add-meal-button" data-add="dinner">
+              + Lisa uus
+            </button>
+            <div class="copy-actions">
+              <button type="button" data-copy="dinner" class="copy-btn">
+                📋 Kopeeri
+              </button>
+              <button type="button" data-paste="dinner" class="copy-btn">
+                📥 Kleebi
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="summary-card">
+        <p class="meal-label">Kokkuvõte</p>
+        <h3 id="dailyTotal">Kokku: 0 kcal</h3>
+        <div class="summary-stats">
+          <span id="dailyProtein">Proteiin: 0 g</span>
+          <span id="dailyFat">Rasv: 0 g</span>
+          <span id="dailyCarbs">Süsivesikud: 0 g</span>
+        </div>
+        <button id="carryButton" class="carry-button" type="button">
+          Kanna järgmisele nädalale
+        </button>
+      </section>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="meal-popup.js"></script>
+    <script defer src="meal-diary.js"></script>
+  </body>
+</html>
