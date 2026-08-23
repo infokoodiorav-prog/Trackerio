@@ -2,22 +2,36 @@
 
 TrackerIO on Androidi treeningu- ja toitumispäeviku rakendus, mis aitab kasutajal jälgida oma treeninguid, toitumist ja arengut.
 
-## Funktsioonid
-
-- Treeningute loomine ja salvestamine LocalStorage'i
-- Harjutuste lisamine, haldamine ja muutmine
-- Seeriate, korduste ja raskuste märkimine ning muutmine
-- Ajapõhised harjutused koos taimeri, heli, vibratsiooni ja popup-teavitusega
-- Treeningute ajalugu
-- Progressi jälgimine
-- Harjutuste statistika
-- Isiklike rekordite jälgimine
-- Treeningute kopeerimine ja korduvkasutamine
+### 🏋️ Treeningute jälgimine
+- Treeningute loomine ja salvestamine
+- Harjutuste lisamine, muutmine ja haldamine
+- Seeriate, korduste ja raskuste jälgimine
+- Ajapõhiste harjutuste tugi
+- Puhketimer seeriate vahel
+- Treeningu timer heli ja vibratsiooniteavitustega
+- Ringtreeningud
+- Seeriate ja harjutuste märkimine lõpetatuks
 - Harjutuste ümberjärjestamine lohistamisega
+- Treeningute kopeerimine ja korduvkasutamine
+- Treeningute kopeerimine järgmisesse nädalasse
+
+### 📊 Progressi jälgimine
+- Treeningute ajalugu
+- Harjutuste statistika
+- Progressi jälgimine
+- Isiklikud rekordid
+
+### 🍽️ Toitumine
 - Toitumispäevik
 - Päevase toitumise ülevaade
-- Andmete kohalik salvestamine
-- Töötab ilma konto ja sisselogimiseta
+- Kohalik andmete salvestamine
+
+### 🔒 Privaatsus ja andmete salvestamine
+- Konto pole vajalik
+- Sisselogimine pole vajalik
+- Pilveandmebaasi pole
+- Andmed salvestatakse lokaalselt LocalStorage'i
+- Rakendus on loodud töötama ka ilma internetiühenduseta
 
 ## Tehnoloogiad
 
@@ -52,22 +66,36 @@ Ehitatud isikliku projektina eesmärgiga luua lihtne ja kiire treeningurakendus 
 
 TrackerIO is an Android workout and nutrition tracking application that helps users track workouts, nutrition and progress.
 
-## Features
-
-- Create and save workouts using LocalStorage
-- Add, manage and edit exercises
-- Track sets, repetitions and weights
-- Time-based exercises with timer, sound, vibration and popup notifications
-- Workout history
-- Progress tracking
-- Exercise statistics
-- Personal records tracking
+### 🏋️ Workout Tracking
+- Create and save workouts
+- Add, edit and manage exercises
+- Track sets, reps and weight
+- Support for time-based exercises
+- Rest timers between sets
+- Workout timers with sound and vibration notifications
+- Circuit training
+- Mark sets and exercises as completed
+- Reorder exercises with drag & drop
 - Copy and reuse workouts
-- Drag and drop exercise reordering
-- Nutrition diary
+- Copy workouts into the following week
+
+### 📊 Progress Tracking
+- Workout history
+- Exercise statistics
+- Progress tracking
+- Personal records
+
+### 🍽️ Nutrition
+- Daily food diary
 - Daily nutrition overview
 - Local data storage
-- Works without account or login
+
+### 🔒 Privacy & Storage
+- No account required
+- No login
+- No cloud database
+- Data stored locally using LocalStorage
+- Designed to work without an internet connection
 
 ## Technologies
 
