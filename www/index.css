@@ -612,7 +612,8 @@ button * {
 .deleteBtn,
 .deleteSetBtn,
 .cancelDeleteBtn,
-.addSetBtn {
+.addSetBtn,
+.restBtn {
   border: 1px solid var(--border);
   border-radius: 10px;
   cursor: pointer;
@@ -634,6 +635,11 @@ button * {
   background: rgba(255, 92, 92, 0.16);
   color: var(--danger);
   padding: 6px 10px;
+}
+.restBtn {
+  background: var(--surface-soft);
+  padding: 6px 10px;
+  color: var(--primary);
 }
 
 .deleteBtn,
@@ -927,4 +933,54 @@ button * {
   font-weight: 800;
   cursor: pointer;
   transition: transform 0.15s ease;
+}
+.restTimer {
+  position: fixed;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 1090;
+
+  display: grid;
+  place-items: center;
+
+  width: min(calc(100vw - 32px), 360px);
+  padding: 14px 18px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #f35d24, #ff9b45);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+
+  box-shadow: 0 14px 34px rgba(173, 57, 16, 0.42);
+
+  transform: translate(-50%, 0);
+}
+
+.restTimer.hidden {
+  display: none;
+}
+
+#restTimerValue {
+  color: inherit;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.restTimer strong {
+  font-size: 0.82rem;
+  letter-spacing: 0.11em;
+}
+
+.restTimer span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.set-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

@@ -36,8 +36,8 @@ const roundSecondsInput = document.getElementById("roundSeconds");
 const roundRestMinutesInput = document.getElementById("roundRestMinutes");
 const roundRestSecondsInput = document.getElementById("roundRestSeconds");
 
-const restSecondsInput = document.getElementById("restSeconds");
-const restMinutesInput = document.getElementById("restMinutes");
+const restSecondsInput = document.getElementById("setRestSeconds");
+const restMinutesInput = document.getElementById("setRestMinutes");
 
 const roundCountInput = document.getElementById("roundCount");
 
@@ -133,10 +133,11 @@ bodyweightBtn.addEventListener("click", () => {
   isBodyweight = !isBodyweight;
 
   if (isBodyweight) {
-    weightInput.value = "";
+    weightInput.value = "Keharaskus";
     weightInput.disabled = true;
     bodyweightBtn.classList.add("active");
   } else {
+    weightInput.value = "";
     weightInput.disabled = false;
     bodyweightBtn.classList.remove("active");
   }
@@ -223,14 +224,19 @@ saveBtn.addEventListener("click", () => {
         done: null,
       });
     } else {
+      const restMinutes = Number(restMinutesInput.value) || 0;
+      const restSeconds = Number(restSecondsInput.value) || 0;
+
+      const restTime = restMinutes * 60 + restSeconds;
+
       setsArray.push({
         plannedReps: Number(maxRepsInput.value),
         actualReps: null,
 
-        weight: isBodyweight ? "" : weightInput.value.trim(),
-
+        weight: isBodyweight ? "BW" : weightInput.value.trim(),
         bodyweight: isBodyweight,
 
+        restTime: restTime,
         actualTime: null,
         circuit: false,
         done: null,
