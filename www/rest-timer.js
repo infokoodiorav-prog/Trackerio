@@ -82,26 +82,35 @@ function showRestTimePopup(ex) {
   content.querySelector("p").insertAdjacentHTML(
     "afterend",
     `
-      <div class="time-row">
-        <input
-          id="restMinutesInput"
-          type="number"
-          min="0"
-          placeholder="Min"
-          value="${minutes}"
-        >
+    <div class="time-row">
+      <input
+        id="restMinutesInput"
+        type="number"
+        min="0"
+        placeholder="${minutes}"
+      >
 
-        <span>:</span>
+      <span>:</span>
 
-        <input
-          id="restSecondsInput"
-          type="number"
-          min="0"
-          max="59"
-          placeholder="Sek"
-          value="${String(seconds).padStart(2, "0")}"
-        >
-      </div>
-    `,
+      <input
+        id="restSecondsInput"
+        type="number"
+        min="0"
+        max="59"
+        placeholder="${String(seconds).padStart(2, "0")}"
+      >
+    </div>
+  `,
   );
+
+  const minuteInput = document.getElementById("restMinutesInput");
+  const secondInput = document.getElementById("restSecondsInput");
+
+  [minuteInput, secondInput].forEach((input) => {
+    input.addEventListener("focus", () => {
+      requestAnimationFrame(() => {
+        input.select();
+      });
+    });
+  });
 }
