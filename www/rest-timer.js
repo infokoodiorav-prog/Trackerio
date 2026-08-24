@@ -1,5 +1,6 @@
 let restTimerInterval = null;
 let restTimerRemaining = 0;
+let restTimerEndTime = null;
 
 const restTimer = document.getElementById("restTimer");
 const restTimerValue = document.getElementById("restTimerValue");
@@ -18,35 +19,43 @@ function startRestTimer(seconds) {
 
   clearInterval(restTimerInterval);
 
-  restTimerRemaining = seconds;
-
+  restTimerEndTime = Date.now() + seconds * 1000;
   restTimer.classList.remove("hidden");
 
   updateRestTimer();
 
-  restTimerInterval = setInterval(() => {
-    restTimerRemaining--;
+  scheduleTimerNotification(
+    seconds,
+    "PUHKUS LÄBI",
+    "Jätka järgmise seeriaga 💪",
+  );
 
-    updateRestTimer();
-
-    if (restTimerRemaining <= 0) {
-      clearInterval(restTimerInterval);
-      restTimerInterval = null;
-
-      restTimer.classList.add("hidden");
-    }
-  }, 1000);
+  restTimerInterval = setInterval(updateRestTimer, 250);
 }
 
 function updateRestTimer() {
+  if (!restTimerEndTime) return;
+
+  const remainingMs = restTimerEndTime - Date.now();
+
+  restTimerRemaining = Math.max(0, Math.ceil(remainingMs / 1000));
+
   const minutes = Math.floor(restTimerRemaining / 60);
   const seconds = restTimerRemaining % 60;
 
   restTimerValue.textContent =
     `${String(minutes).padStart(2, "0")}:` +
     `${String(seconds).padStart(2, "0")}`;
-}
 
+  if (remainingMs <= 0) {
+    clearInterval(restTimerInterval);
+    restTimerInterval = null;
+    restTimerEndTime = null;
+
+    restTimerRemaining = 0;
+    restTimer.classList.add("hidden");
+  }
+}
 function showRestTimePopup(ex) {
   const currentRestTime = ex.sets[0]?.restTime || 0;
 
