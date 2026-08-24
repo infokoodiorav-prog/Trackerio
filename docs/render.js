@@ -306,6 +306,10 @@ function render() {
     deleteBtn.innerHTML = '<i data-lucide="trash-2"></i>';
     deleteBtn.className = "deleteBtn";
 
+    const restBtn = document.createElement("button");
+    restBtn.innerHTML = '<i data-lucide="timer"></i>';
+    restBtn.className = "restBtn";
+
     // Vasak pool
     left.appendChild(dragHandle);
     left.appendChild(toggleBtn);
@@ -314,6 +318,10 @@ function render() {
     // Header
     header.appendChild(left);
     header.appendChild(deleteBtn);
+
+    restBtn.onclick = () => {
+      showRestTimePopup(ex);
+    };
 
     deleteBtn.onclick = () => {
       const dayEntry = getDayEntry(currentDate);
@@ -502,11 +510,7 @@ function render() {
           if (set.bodyweight) {
             weightText.textContent = "Keharaskus";
           } else {
-            if (set.bodyweight) {
-              weightText.textContent = "Keharaskus";
-            } else {
-              weightText.textContent = `${set.weight}kg`;
-            }
+            weightText.textContent = `${set.weight}kg`;
           }
         }
 
@@ -669,6 +673,7 @@ function render() {
               set.actualTime = set.weight;
               set.done = true;
               playTimerAlert("complete");
+              startRestTimer(set.restTime || 0);
               checkWorkoutCompletion();
             }
           }
@@ -703,6 +708,9 @@ function render() {
         save();
         updateUI();
 
+        console.log("Seeria puhkeaeg:", set.restTime);
+        startRestTimer(set.restTime || 0);
+
         doneBtn.classList.add("pulse");
         setTimeout(() => {
           doneBtn.classList.remove("pulse");
@@ -719,6 +727,7 @@ function render() {
           updateUI();
           render();
           checkWorkoutCompletion();
+          startRestTimer(set.restTime || 0);
 
           return;
         }
@@ -740,6 +749,7 @@ function render() {
             updateUI();
             render();
             checkWorkoutCompletion();
+            startRestTimer(set.restTime);
           },
         });
       };
@@ -832,6 +842,7 @@ function render() {
         ex.sets.push({
           plannedReps: null,
           actualReps: null,
+          restTime: 0,
 
           circuit: true,
 
@@ -857,13 +868,12 @@ function render() {
           actualReps: null,
 
           weight: lastSet?.weight || 0,
-
           bodyweight: lastSet?.bodyweight || false,
 
+          restTime: lastSet?.restTime || 0,
           actualTime: null,
 
           circuit: false,
-
           done: null,
         });
       }
@@ -872,7 +882,13 @@ function render() {
       render();
     };
 
-    setsDiv.appendChild(addSetBtn);
+    const setActions = document.createElement("div");
+    setActions.className = "set-actions-row";
+
+    setActions.appendChild(addSetBtn);
+    setActions.appendChild(restBtn);
+
+    setsDiv.appendChild(setActions);
     card.appendChild(header);
     card.appendChild(setsDiv);
     exercisesList.appendChild(card);

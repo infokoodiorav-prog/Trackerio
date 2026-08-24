@@ -79,9 +79,11 @@ function showTimerAlert(type) {
     <strong>${pattern.title}</strong>
     <span>${pattern.message}</span>
   `;
+
   timerAlertElement.classList.add("timer-alert--visible");
 
   clearTimeout(timerAlertTimer);
+
   timerAlertTimer = setTimeout(() => {
     timerAlertElement.classList.remove("timer-alert--visible");
   }, 3200);
@@ -108,7 +110,8 @@ function playTimerAlert(type = "complete") {
       const toneStart = startTime + offset;
       const toneEnd = toneStart + duration;
 
-      oscillator.type = index === pattern.tones.length - 1 ? "sine" : "triangle";
+      oscillator.type =
+        index === pattern.tones.length - 1 ? "sine" : "triangle";
       oscillator.frequency.setValueAtTime(frequency, toneStart);
 
       gain.gain.setValueAtTime(0.0001, toneStart);
@@ -123,8 +126,45 @@ function playTimerAlert(type = "complete") {
   };
 
   if (context.state === "suspended") {
-    context.resume().then(scheduleAlert).catch(() => {});
+    context
+      .resume()
+      .then(scheduleAlert)
+      .catch(() => {});
   } else {
     scheduleAlert();
   }
+}
+
+function startRestTimer(seconds) {
+  console.log("Rest timer käivitus:", seconds);
+
+  if (typeof seconds === "string" && seconds.includes(":")) {
+    const [minutes, remainingSeconds] = seconds.split(":").map(Number);
+    seconds = minutes * 60 + remainingSeconds;
+  } else {
+    seconds = Number(seconds) || 0;
+  }
+
+  if (seconds <= 0) return;
+
+  clearInterval(restTimerInterval);
+
+  restTimerRemaining = seconds;
+
+  restTimer.classList.remove("hidden");
+
+  updateRestTimer();
+
+  restTimerInterval = setInterval(() => {
+    restTimerRemaining--;
+
+    updateRestTimer();
+
+    if (restTimerRemaining <= 0) {
+      clearInterval(restTimerInterval);
+      restTimerInterval = null;
+
+      restTimer.classList.add("hidden");
+    }
+  }, 1000);
 }

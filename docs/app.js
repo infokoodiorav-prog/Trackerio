@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   updateDateUI();
 
+  console.log("Capacitor:", window.Capacitor);
+  console.log(
+    "LocalNotifications:",
+    window.Capacitor?.Plugins?.LocalNotifications,
+  );
+
   const burgerBtn = document.getElementById("burgerBtn");
   const navMenu = document.getElementById("navMenu");
 
@@ -26,3 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+initNotifications();
